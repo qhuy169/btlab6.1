@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        
+        <button type="submit">Login</button>
+      </form>
+      
+      <div id="loginMessage"></div>
+
+      <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn form gửi đi ngay lập tức
+
+    // Lấy giá trị từ các trường nhập liệu
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Kiểm tra điều kiện
+    if (username === "") {
+        displayLoginMessage("Username không được để trống.");
+        return;
+    }
+
+    if (password === "") {
+        displayLoginMessage("Password không được để trống.");
+        return;
+    }
+
+    // Nếu tất cả đều hợp lệ
+    displayLoginMessage("Đăng nhập thành công!");
+    });
+
+    function displayLoginMessage(message) {
+        document.getElementById('loginMessage').textContent = message;
+        document.getElementById('loginMessage').style.color="red";
+    }
+
+      </script>
+</body>
+</html>
